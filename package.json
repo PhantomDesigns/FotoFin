@@ -1,0 +1,35 @@
+{
+  "name": "nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.5",
+    "@roq/nextjs": "^1.0.17",
+    "autoprefixer": "10.4.15",
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.40.0",
+    "date-fns": "^2.30.0",
+    "dayjs": "^1.11.9",
+    "formidable": "^3.5.0",
+    "moment": "^2.29.4",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.3",
+    "next": "^13.4.15",
+    "next-auth": "^4.23.0",
+    "postcss": "8.4.27",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-uploader": "^3.41.0",
+    "tailwindcss": "3.3.3",
+    "upload-js-full": "^2.21.0"
+  }
+}
