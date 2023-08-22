@@ -7,7 +7,6 @@ import { UploadButton } from "react-uploader";
 import { usePathname, useRouter } from "next/navigation";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange }) => {
-  require('dotenv').config()
   const secretKey= process.env.BYTESCALE_KEY
   const pathName = usePathname();
   const uploader = Uploader({
