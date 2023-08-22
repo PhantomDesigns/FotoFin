@@ -8,7 +8,7 @@ export const metadata = {
     title: "FotoFin",
     description: 'A wonderful world of fishing photos.'
 }
-
+require('dotenv').config()
 const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
