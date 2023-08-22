@@ -10,7 +10,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
 
   const pathName = usePathname();
   const uploader = Uploader({
-    apiKey: "public_FW25bda733j9VK2eaxVZXX7chvuQ", // Get production API keys from Bytescale
+    apiKey: process.env.BYTESCALE_KEY, // Get production API keys from Bytescale
   });
 
   // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
