@@ -8,13 +8,14 @@ import { usePathname, useRouter } from "next/navigation";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange }) => {
   require('dotenv').config()
+  const secretKey= process.env.BYTESCALE_KEY
   const pathName = usePathname();
   const uploader = Uploader({
-    apiKey: process.env.BYTESCALE_KEY, // Get production API keys from Bytescale
+    apiKey: "public_FW25bda9vd9B2QMaFqHHCuJmrjnv"
   });
-
+  console.log(secretKey);
   // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
-  const options = { multi: true };
+  const options = { multi: false };
 
   const handleComplete = files => {
     const message = files.map(x => x.fileUrl).join("\n");
