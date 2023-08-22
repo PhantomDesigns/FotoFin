@@ -14,15 +14,20 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
   });
   console.log(secretKey);
   // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
-  const options = { multi: false };
+  const options = { 
+    multi: false, 
+    "images": {
+      "crop": true,
+      "cropRatio": 1,
+      "cropShape": "rect",
+      "preview": true
+  }};
 
   const handleComplete = files => {
     const message = files.map(x => x.fileUrl).join("\n");
     setPost({ ...post, foto: message})
     return message;
   };
-
-  const [toggle, setToggle] = useState(true)
 
   return (
     <section className="w-full max-w-full flex-start flex-col">
@@ -40,7 +45,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
         <label>
           <span className='font-satoshi mt-10 font-semibold text-base text-gray-700'>Your Fin Foto</span><br/>
           <p>
-          <img src={post.foto} className='w-48 object-center rounded-lg my-2 justify-center'/>
+          <img src={post.foto} className='w-64 h-64 object-center rounded-lg my-2 justify-center'/>
           {pathName === '/create-post' && (
           <UploadButton uploader={uploader}
             options={options}

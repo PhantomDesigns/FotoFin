@@ -55,11 +55,9 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           <Image
               src={post.foto}
               alt='user_image'
-              maxWidth={250}
               width={250}
-              maxHeight={250}
               height={250}
-              className='object-contain rounded-lg my-5'
+              className='object-contain rounded-lg my-5 w-64 h-64 '
             />
         </div>
         <p className="font-satoshi text-sm text-gray-700">
