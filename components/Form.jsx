@@ -19,7 +19,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
     "images": {
       "crop": true,
       "cropRatio": 1,
-      "cropShape": "rect",
+      "cropShape": "circ",
       "preview": true
   }};
 
@@ -45,7 +45,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
         <label>
           <span className='font-satoshi mt-10 font-semibold text-base text-gray-700'>Your Fin Foto</span><br/>
           <p>
-          <img src={post.foto} className='w-64 h-64 object-center rounded-lg my-2 justify-center'/>
+          <img src={post.foto} className='object-center rounded-lg my-2 justify-center'/>
           {pathName === '/create-post' && (
           <UploadButton uploader={uploader}
             options={options}
