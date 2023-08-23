@@ -12,7 +12,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
   const uploader = Uploader({
     apiKey: "public_FW25bda9vd9B2QMaFqHHCuJmrjnv"
   });
-  console.log(secretKey);
+
   // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
   const options = { 
     multi: false, 

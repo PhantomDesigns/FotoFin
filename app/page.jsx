@@ -1,4 +1,5 @@
 import Feed from '@components/Feed';
+import { Suspense } from 'react';
 
 const Home = () => {
   return (
@@ -11,7 +12,9 @@ const Home = () => {
         <p className="desc text-center">
             FotoFin is a new fishing social media platform to share all your wonderful catches
         </p>
+        <Suspense fallback="Loading...">
         <Feed />
+        </Suspense>
     </section>
   )
 }

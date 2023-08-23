@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import moment from 'moment';
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
@@ -12,8 +12,9 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const pathName = usePathname();
   const router = useRouter();
   const [copied, setCopied] = useState("");
+
   const handleProfileClick = () => {
-    if (post.creator._id === session?.user.id) return router.push("/profile");
+    if (post.creator._id === session?.user.id) return router.push("/profile")
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   }
 
