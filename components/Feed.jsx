@@ -65,7 +65,7 @@ const Feed = () => {
   const SortedPosts = searchedResults.sort((a, b) =>
     a.position > b.position ? 1 : -1
   );
-
+  console.log(posts);
   return (
     <section className="feed">
       <form className='relative w-full flex-center'>
