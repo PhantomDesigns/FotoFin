@@ -80,7 +80,7 @@ const Feed = () => {
       </form>
       {searchText ? (
         <PromptCardList
-          data={posts}
+          data={searchedResults}
           handleTagClick={handleTagClick}
         />
       ) : (
