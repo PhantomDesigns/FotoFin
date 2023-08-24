@@ -14,14 +14,12 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
   });
 
   // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
-  const options = { 
-    multi: false, 
-    "images": {
-      "crop": true,
-      "cropRatio": 1,
-      "cropShape": "circ",
-      "preview": true
-  }};
+  const options = { multi: false, 
+    crop: true,
+    cropRatio: 1,
+    cropShape: "circ",
+    preview: true,
+  }
 
   const handleComplete = files => {
     const message = files.map(x => x.fileUrl).join("\n");
