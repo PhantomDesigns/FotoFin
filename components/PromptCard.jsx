@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import moment from 'moment';
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
@@ -23,6 +23,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     navigator.clipboard.writeText(post.prompt);
     setTimeout(() => setCopied("", 3000));
   }
+
   return (
     <div className='prompt_card'>
         <div className="flex justify-between items-start gap-5">
