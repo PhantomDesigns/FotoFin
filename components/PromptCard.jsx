@@ -30,7 +30,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         <div className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
         onClick={handleProfileClick}>
           <Image
-              src={post.creator.image}
+              src={post.creator.image.replaceAll(" ", "%20")}
               alt='user_image'
               width={40}
               height={40}
@@ -55,7 +55,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
         </div>
         <div className="flex-1 flex justify-center items-center gap-3">          
           <Image
-              src={post.foto}
+              src={post.foto.replaceAll(" ", "%20")}
               alt='user_image'
               width={250}
               height={250}
