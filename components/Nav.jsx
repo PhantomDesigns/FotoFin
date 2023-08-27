@@ -98,7 +98,7 @@ const Nav = () => {
                       Create Post
                   </Link>
                   <button
-                    type='buttn'
+                    type='button'
                     onClick={() => {setToggleDropdown(false);
                       signOut({ callbackUrl: 'http://localhost:3000/' });
                     }}

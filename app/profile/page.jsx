@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Profile from '@components/Profile';
 
 const MyProfile = () => {
-
+ 
   const { data: session } = useSession();
   const router = useRouter();
   const [ posts, setPosts ] = useState([]);
@@ -42,6 +42,7 @@ const MyProfile = () => {
       }
     }
   }
+  console.log(session?.user.id)
   return (
     <Profile 
       name="My"
