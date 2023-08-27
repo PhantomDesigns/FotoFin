@@ -19,7 +19,7 @@ const MyProfile = () => {
     };
     if(session?.user.id) fetchPosts(); 
     
-  }, []);
+  }, [session]);
   
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
@@ -37,8 +37,7 @@ const MyProfile = () => {
         const filteredPosts = posts.filter((p) => p._id !== post._id );
 
         setPosts(filteredPosts);
-        console.log('Filtered Posts:');
-        console.log(filteredPosts);
+
       } catch (error) {
         console.log(error)
       }
