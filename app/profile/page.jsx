@@ -10,7 +10,7 @@ const MyProfile = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const [ posts, setPosts ] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add a loading state
+  const [ isLoading, setIsLoading ] = useState(true); // Add a loading state
 
 
   useEffect(() => {
@@ -48,10 +48,6 @@ const MyProfile = () => {
       }
     }
   }
-  console.log('USER ID:');
-  console.log(session?.user.id);
-  console.log('Posts:');
-  console.log(posts);
 
   if (isLoading) {
     return <div>Loading...</div>;
