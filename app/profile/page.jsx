@@ -10,16 +10,21 @@ const MyProfile = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const [ posts, setPosts ] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add a loading state
+
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch(`/api/users/${session?.user.id}/posts`);
-      const data = await response.json();
-      setPosts(data);
+      if (session?.user.id) {
+        const response = await fetch(`/api/users/${session.user.id}/posts`);
+        const data = await response.json();
+        setPosts(data);
+        setIsLoading(false); // Once data is fetched, set isLoading to false
+      }
     };
-    if(session?.user.id) fetchPosts(); 
-    
-  }, [session]);
+
+    fetchPosts();
+  }, [session]); // Include session as a dependency
   
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
@@ -47,6 +52,10 @@ const MyProfile = () => {
   console.log(session?.user.id);
   console.log('Posts:');
   console.log(posts);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Profile 
