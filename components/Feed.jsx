@@ -66,6 +66,12 @@ const Feed = () => {
     a.position > b.position ? 1 : -1
   );
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  };
+
   return (
     <section className="feed">
       <form className='relative w-full flex-center'>
@@ -74,13 +80,14 @@ const Feed = () => {
           placeholder='Search for a tag or a username'
           value={searchText}
           onChange={handleSearchChange}
+          onKeyDown={handleKeyDown}
           required
           className='search_input peer'
         />
       </form>
       {searchText ? (
         <PromptCardList
-          data={searchedResults}
+          data={SortedPosts}
           handleTagClick={handleTagClick}
         />
       ) : (
