@@ -37,6 +37,8 @@ const MyProfile = () => {
         const filteredPosts = posts.filter((p) => p._id !== post._id );
 
         setPosts(filteredPosts);
+        console.log('Filtered Posts:');
+        console.log(filteredPosts);
       } catch (error) {
         console.log(error)
       }
@@ -46,8 +48,7 @@ const MyProfile = () => {
   console.log(session?.user.id);
   console.log('Posts:');
   console.log(posts);
-  console.log('Filtered Posts:');
-  console.log(filteredPosts);
+
   return (
     <Profile 
       name="My"
