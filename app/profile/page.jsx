@@ -42,7 +42,12 @@ const MyProfile = () => {
       }
     }
   }
-  console.log(session?.user.id)
+  console.log('USER ID:');
+  console.log(session?.user.id);
+  console.log('Posts:');
+  console.log(posts);
+  console.log('Filtered Posts:');
+  console.log(filteredPosts);
   return (
     <Profile 
       name="My"
