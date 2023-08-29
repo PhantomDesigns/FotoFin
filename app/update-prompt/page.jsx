@@ -57,9 +57,7 @@ const EditPrompt = () => {
 
   useEffect(() => {
     if (!session) {
-      setTimeout(() => {
-        router.push('/'); // Redirect to the home page after 5 seconds
-      }, 5000);
+      router.push('/'); // Redirect to the home page immediately
     }
   }, [session]);
 
