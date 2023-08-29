@@ -13,13 +13,23 @@ const Form = ({ type, post, setPost, submitting, handleSubmit, handleFileChange 
     apiKey: "public_FW25bda9vd9B2QMaFqHHCuJmrjnv"
   });
 
-  // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
-  const options = { multi: false, 
-    crop: true,
-    cropRatio: 1,
-    cropShape: "circ",
-    preview: true,
+  // https://www.bytescale.com/docs/upload-widget#configuration
+const options = {
+  multi: false,
+  styles: {
+    colors: {
+      primary: "#1D4ED8"
+    }
+  },
+  editor: {
+    images: {
+      crop: true,
+      cropRatio: 1,
+      cropShape: "rect",
+      preview: true
+    }
   }
+}
 
   const handleComplete = files => {
     const message = files.map(x => x.fileUrl).join("\n");
