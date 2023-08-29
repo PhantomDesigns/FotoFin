@@ -40,12 +40,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
               </h3>
             </div>
           </div>
-          <div className="/cursor-pointer" onClick={handleCopy}>
+          <div className="/cursor-pointer">
           {session?.user.id && (
               <Image
-                src={copied === post.prompt
-                ? '/assets/icons/heart-filled.svg'
-                : '/assets/icons/heart-gray.svg'}
+                src='/assets/icons/heart-gray.svg'
                 width={24}
                 height={24}
                 alt="Heart Button"
