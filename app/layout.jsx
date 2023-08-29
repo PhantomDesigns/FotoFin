@@ -12,7 +12,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
         <body>
-            <Provider>
+        <Provider apiKey="pt_aca517ed0cbd187df4889806ca7037">
             <div className="main">
                 <div className="gradient"></div>
             </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import moment from 'moment';
-import { Provider } from '@lyket/react';
+import { LikeButton } from '@lyket/react';
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
@@ -43,9 +43,11 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           </div>
           <div className="/cursor-pointer">
           {session?.user.id && (
-            <Provider apiKey="pt_aca517ed0cbd187df4889806ca7037">
-              <App />
-            </Provider>
+            <LikeButton
+            namespace="testing-react"
+            id="everybody-like-now"
+            component={LikeButton.templates.Heart}
+          />
             )}
           </div>
         </div>
