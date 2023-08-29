@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { useState } from 'react';
+import { useSession } from "next-auth/react"
 import { useRouter } from 'next/navigation';
 
 import Form from '@components/Form';
 
 const CreatePost = () => {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession()
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     foto: '',
@@ -40,14 +40,13 @@ const CreatePost = () => {
     }
 
   }
-  useEffect(() => {
-    if (!session) {
-      router.push('/'); // Redirect to the home page immediately
-    }
-  }, [session]);
 
-  if (!session) {
-    return <div>Please sign in to create a post.</div>;
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied - Please sign in.</p>
   }
 
   return (

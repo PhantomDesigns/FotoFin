@@ -8,7 +8,7 @@ const EditPrompt = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get('id'); 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession()
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: '',
@@ -55,14 +55,12 @@ const EditPrompt = () => {
 
   }
 
-  useEffect(() => {
-    if (!session) {
-      router.push('/'); // Redirect to the home page immediately
-    }
-  }, [session]);
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
 
-  if (!session) {
-    return <div>Please sign in to update a post.</div>;
+  if (status === "unauthenticated") {
+    return <p>Access Denied - Please sign in.</p>
   }
 
   return (

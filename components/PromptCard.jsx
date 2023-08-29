@@ -43,7 +43,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           <div className="/cursor-pointer">
           {session?.user.id && (
               <Image
-                src="/assets/images/logo.png"
+                src="/assets/icons/heart-grey.svg"
                 width={24}
                 height={24}
                 alt="Heart Button"

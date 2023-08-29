@@ -7,7 +7,7 @@ import Profile from '@components/Profile';
 
 const MyProfile = () => {
  
-  const { data: session } = useSession();
+  const { data: session, status } = useSession()
   const router = useRouter();
   const [ posts, setPosts ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true); // Add a loading state
@@ -20,9 +20,8 @@ const MyProfile = () => {
         const data = await response.json();
         setPosts(data);
         setIsLoading(false); // Once data is fetched, set isLoading to false
-      } 
+      }
     };
-
     fetchPosts();
   }, [session]); // Include session as a dependency
   
@@ -49,25 +48,15 @@ const MyProfile = () => {
     }
   }
 
-  useEffect(() => {
-    if (!session) {
-      setTimeout(() => {
-        router.push('/'); // Redirect to the home page after 5 seconds
-      }, 5000);
-    }
-  }, [session]);
-
-  if (!session) {
-    return <div>Please sign in to view your profile.</div>;
+  if (status === "loading") {
+    return <p>Loading...</p>
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (status === "unauthenticated") {
+    return <p>Access Denied - Please sign in.</p>
   }
-
+  
   return (
-    
-
     <Profile 
       name="My"
       desc="Welcome to your personalized profile page"
