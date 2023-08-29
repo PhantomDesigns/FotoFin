@@ -40,7 +40,7 @@ const CreatePost = () => {
     }
 
   }
-
+ console.log(session);
   useEffect(() => {
     if (!session) {
       setTimeout(() => {
