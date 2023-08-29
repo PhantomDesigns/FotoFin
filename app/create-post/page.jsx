@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -39,6 +39,18 @@ const CreatePost = () => {
       setSubmitting(false);
     }
 
+  }
+
+  useEffect(() => {
+    if (!session) {
+      setTimeout(() => {
+        router.push('/'); // Redirect to the home page after 5 seconds
+      }, 5000);
+    }
+  }, [session]);
+
+  if (!session) {
+    return <div>Please sign in to create a post.</div>;
   }
 
   return (

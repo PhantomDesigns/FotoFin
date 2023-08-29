@@ -19,9 +19,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   }
 
   const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
-    setTimeout(() => setCopied("", 3000));
+    alert("You just hearted this post!")
   }
 
   return (
@@ -42,15 +40,17 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
               </h3>
             </div>
           </div>
-          <div className="copy_button cursor-pointer hidden" onClick={handleCopy}>
-            <Image
-            src={copied === post.prompt
-            ? '/assets/icons/tick.svg'
-            : '/assets/icons/copy.svg'}
-            width={12}
-            height={12}
-            alt="Copy Button"
-            />
+          <div className="/cursor-pointer" onClick={handleCopy}>
+          {session?.user.id && (
+              <Image
+                src={copied === post.prompt
+                ? '/assets/icons/heart-filled.svg'
+                : '/assets/icons/heart-gray.svg'}
+                width={24}
+                height={24}
+                alt="Heart Button"
+              />
+            )}
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center gap-3">          

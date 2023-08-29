@@ -20,7 +20,7 @@ const MyProfile = () => {
         const data = await response.json();
         setPosts(data);
         setIsLoading(false); // Once data is fetched, set isLoading to false
-      }
+      } 
     };
 
     fetchPosts();
@@ -49,11 +49,25 @@ const MyProfile = () => {
     }
   }
 
+  useEffect(() => {
+    if (!session) {
+      setTimeout(() => {
+        router.push('/'); // Redirect to the home page after 5 seconds
+      }, 5000);
+    }
+  }, [session]);
+
+  if (!session) {
+    return <div>Please sign in to view your profile.</div>;
+  }
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
+    
+
     <Profile 
       name="My"
       desc="Welcome to your personalized profile page"
