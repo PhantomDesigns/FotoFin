@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import moment from 'moment';
+import { Provider } from '@lyket/react';
 
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
@@ -42,12 +43,9 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
           </div>
           <div className="/cursor-pointer">
           {session?.user.id && (
-              <Image
-                src="/assets/icons/heart-gray.svg"
-                width={24}
-                height={24}
-                alt="Heart Button"
-              />
+            <Provider apiKey="pt_aca517ed0cbd187df4889806ca7037">
+              <App />
+            </Provider>
             )}
           </div>
         </div>
